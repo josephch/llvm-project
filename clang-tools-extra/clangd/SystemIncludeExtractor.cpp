@@ -377,6 +377,7 @@ extractSystemIncludesAndTarget(const DriverArgs &InputArgs,
   SPAN_ATTACH(Tracer, "driver", Driver);
   SPAN_ATTACH(Tracer, "lang", InputArgs.Lang);
 
+#if 0
   // If driver was "../foo" then having to allowlist "/path/a/../foo" rather
   // than "/path/foo" is absurd.
   // Allow either to match the allowlist, then proceed with "/path/a/../foo".
@@ -387,6 +388,7 @@ extractSystemIncludesAndTarget(const DriverArgs &InputArgs,
     vlog("System include extraction: not allowed driver {0}", Driver);
     return std::nullopt;
   }
+#endif
 
   llvm::SmallVector<llvm::StringRef> Args = {Driver, "-E", "-v"};
   Args.append(InputArgs.render());
