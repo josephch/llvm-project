@@ -197,8 +197,6 @@ struct DriverArgs {
       Args.append({"-isysroot", ISysroot});
     if (!Target.empty())
       Args.append({"-target", Target});
-    if (!Stdlib.empty())
-      Args.append({"--stdlib", Stdlib});
 
     for (llvm::StringRef Spec : Specs) {
       Args.push_back(Spec);
